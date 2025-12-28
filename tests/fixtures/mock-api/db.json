@@ -1,0 +1,79 @@
+{
+  "reviews": [
+    {
+      "review_id": "test-review-1",
+      "terraform_code": "resource \"aws_s3_bucket\" \"test\" {\n  bucket = \"my-bucket\"\n}",
+      "status": "completed",
+      "created_at": "2024-01-15T10:00:00Z",
+      "updated_at": "2024-01-15T10:05:00Z",
+      "version": 1,
+      "ai_review_result": {
+        "overall_risk_score": 0.45,
+        "security_analysis": {
+          "total_findings": 2,
+          "high_severity": 0,
+          "medium_severity": 1,
+          "low_severity": 1,
+          "findings": [
+            {
+              "finding_id": "find-1",
+              "category": "security",
+              "severity": "medium",
+              "title": "S3 bucket should have versioning enabled",
+              "description": "Enable versioning for data protection",
+              "line_number": 1,
+              "file_path": "main.tf",
+              "recommendation": "Add versioning configuration",
+              "confidence_score": 0.85
+            }
+          ]
+        },
+        "cost_analysis": {
+          "estimated_monthly_cost": 0.50,
+          "estimated_annual_cost": 6.00,
+          "resource_count": 1,
+          "cost_optimizations": []
+        },
+        "reliability_analysis": {
+          "reliability_score": 0.80,
+          "single_points_of_failure": [],
+          "recommendations": []
+        },
+        "fix_suggestions": [
+          {
+            "fix_id": "fix-1",
+            "finding_id": "find-1",
+            "original_code": "resource \"aws_s3_bucket\" \"test\" {}",
+            "suggested_code": "resource \"aws_s3_bucket\" \"test\" {\n  versioning {\n    enabled = true\n  }\n}",
+            "explanation": "Enable versioning for data protection",
+            "effectiveness_score": 0.90
+          }
+        ]
+      }
+    }
+  ],
+  "analytics": {
+    "total_reviews": 10,
+    "reviews_by_status": {
+      "completed": 8,
+      "pending": 1,
+      "failed": 1
+    },
+    "reviews_by_risk": {
+      "low": 5,
+      "medium": 3,
+      "high": 2
+    },
+    "average_risk_score": 0.45,
+    "trend_data": [
+      { "date": "2024-01-15", "count": 2 },
+      { "date": "2024-01-14", "count": 3 },
+      { "date": "2024-01-13", "count": 1 }
+    ],
+    "top_findings": [
+      { "title": "Missing security group", "count": 5 },
+      { "title": "No versioning enabled", "count": 3 }
+    ]
+  }
+}
+

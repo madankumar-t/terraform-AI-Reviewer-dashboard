@@ -1,0 +1,94 @@
+[
+  {
+    "PK": "REVIEW#test-review-1",
+    "SK": "METADATA",
+    "review_id": "test-review-1",
+    "terraform_code": "resource \"aws_s3_bucket\" \"test\" {\n  bucket = \"my-bucket\"\n}",
+    "status": "completed",
+    "created_at": "2024-01-15T10:00:00Z",
+    "updated_at": "2024-01-15T10:05:00Z",
+    "version": 1,
+    "ai_review_result": {
+      "overall_risk_score": 0.45,
+      "security_analysis": {
+        "total_findings": 2,
+        "high_severity": 0,
+        "medium_severity": 1,
+        "low_severity": 1,
+        "findings": [
+          {
+            "finding_id": "find-1",
+            "category": "security",
+            "severity": "medium",
+            "title": "S3 bucket should have versioning enabled",
+            "description": "Enable versioning for data protection",
+            "recommendation": "Add versioning configuration",
+            "confidence_score": 0.85
+          }
+        ]
+      },
+      "cost_analysis": {
+        "estimated_monthly_cost": 0.50,
+        "estimated_annual_cost": 6.00,
+        "resource_count": 1,
+        "cost_optimizations": []
+      },
+      "reliability_analysis": {
+        "reliability_score": 0.80,
+        "single_points_of_failure": [],
+        "recommendations": []
+      },
+      "fix_suggestions": []
+    }
+  },
+  {
+    "PK": "REVIEW#test-review-2",
+    "SK": "METADATA",
+    "review_id": "test-review-2",
+    "terraform_code": "resource \"aws_instance\" \"web\" {\n  ami = \"ami-12345\"\n  instance_type = \"t2.micro\"\n}",
+    "status": "completed",
+    "created_at": "2024-01-14T10:00:00Z",
+    "updated_at": "2024-01-14T10:03:00Z",
+    "version": 1,
+    "ai_review_result": {
+      "overall_risk_score": 0.72,
+      "security_analysis": {
+        "total_findings": 3,
+        "high_severity": 1,
+        "medium_severity": 1,
+        "low_severity": 1,
+        "findings": [
+          {
+            "finding_id": "find-2",
+            "category": "security",
+            "severity": "high",
+            "title": "EC2 instance missing security group",
+            "description": "Instance should have security group configured",
+            "recommendation": "Add security group configuration",
+            "confidence_score": 0.90
+          }
+        ]
+      },
+      "cost_analysis": {
+        "estimated_monthly_cost": 7.30,
+        "estimated_annual_cost": 87.60,
+        "resource_count": 1,
+        "cost_optimizations": []
+      },
+      "reliability_analysis": {
+        "reliability_score": 0.65,
+        "single_points_of_failure": [
+          {
+            "finding_id": "spof-1",
+            "title": "Single EC2 instance",
+            "description": "No redundancy for web server",
+            "recommendation": "Use Auto Scaling Group"
+          }
+        ],
+        "recommendations": []
+      },
+      "fix_suggestions": []
+    }
+  }
+]
+

@@ -1,0 +1,18 @@
+{
+  "event": "run:completed",
+  "run": {
+    "id": "run-test-123",
+    "state": "FINISHED",
+    "status": "FINISHED",
+    "commit": {
+      "sha": "abc123",
+      "message": "Update infrastructure"
+    },
+    "stack": {
+      "id": "stack-123",
+      "name": "production-stack"
+    }
+  },
+  "timestamp": "2024-01-15T10:00:00Z"
+}
+

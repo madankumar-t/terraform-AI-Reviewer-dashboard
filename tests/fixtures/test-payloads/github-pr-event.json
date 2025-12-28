@@ -1,0 +1,21 @@
+{
+  "action": "opened",
+  "pull_request": {
+    "number": 123,
+    "title": "Add S3 bucket configuration",
+    "body": "This PR adds a new S3 bucket for storing application data",
+    "head": {
+      "ref": "feature/add-s3-bucket",
+      "sha": "abc123def456"
+    },
+    "base": {
+      "ref": "main",
+      "sha": "def456ghi789"
+    }
+  },
+  "repository": {
+    "name": "terraform-infrastructure",
+    "full_name": "org/terraform-infrastructure"
+  }
+}
+
