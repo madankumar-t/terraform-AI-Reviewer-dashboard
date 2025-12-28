@@ -1,0 +1,19 @@
+# Example Terraform variables file
+# Copy this to terraform.tfvars and fill in your values
+
+aws_region = "us-east-1"
+environment = "prod"
+
+# API Keys (will be stored in Secrets Manager)
+# openai_api_key = "sk-..."
+# anthropic_api_key = "sk-ant-..."
+
+# Spacelift webhook secret
+# spacelift_webhook_secret = "your-webhook-secret"
+
+# CORS origins (adjust for your frontend domain)
+allowed_origins = ["*"]  # In production, specify your domain
+
+# Optional: Custom domain for API Gateway
+# custom_domain_name = ""
+

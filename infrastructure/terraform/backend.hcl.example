@@ -1,0 +1,11 @@
+# Terraform Backend Configuration
+# Copy this file to backend.hcl and update with your values
+# Initialize with: terraform init -backend-config=backend.hcl
+
+bucket         = "terraform-state-ACCOUNT-ID-REGION"
+key            = "terraform-spacelift-ai-reviewer/terraform.tfstate"
+region         = "us-east-1"
+dynamodb_table = "terraform-state-lock"
+encrypt        = true
+# kms_key_id     = "arn:aws:kms:region:account-id:key/key-id"  # Optional
+
