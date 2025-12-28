@@ -1,8 +1,11 @@
 # Terraform + Spacelift AI Reviewer
 
-## Enterprise-Grade AI-Powered Code Review Platform
+## 🎯 Enterprise-Grade AI-Powered Code Review Platform
 
 Complete enterprise application for AI-powered Terraform code review with Spacelift integration, featuring security analysis, cost optimization, and reliability assessment.
+
+**See [PROJECT_OVERVIEW.md](./PROJECT_OVERVIEW.md) for complete project description and outcomes.**
+**See [DASHBOARD_DESCRIPTIONS.md](./DASHBOARD_DESCRIPTIONS.md) for detailed dashboard descriptions.**
 
 ## 📁 Project Structure
 
