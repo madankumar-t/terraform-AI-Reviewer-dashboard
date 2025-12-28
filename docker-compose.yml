@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # DynamoDB Local
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-inMemory"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+
+  # Mock API Server (optional)
+  mock-api:
+    image: node:18-alpine
+    container_name: mock-api
+    working_dir: /app
+    volumes:
+      - ./tests/fixtures/mock-api:/app
+    ports:
+      - "3001:3001"
+    command: sh -c "npm install -g json-server && json-server --watch db.json --port 3001 --host 0.0.0.0"
+    depends_on:
+      - dynamodb-local
+
+  # LocalStack (optional - for full AWS emulation)
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=lambda,dynamodb,apigateway,cloudwatch,logs
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - "./localstack-data:/tmp/localstack"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+

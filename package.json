@@ -1,0 +1,25 @@
+{
+  "name": "terraform-spacelift-ai-reviewer-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root package.json for workspace management",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm run start",
+    "lint": "cd frontend && npm run lint",
+    "test": "cd frontend && npm test",
+    "test:backend": "cd backend/lambda && python -m pytest tests/ -v",
+    "test:all": "npm test && npm run test:backend",
+    "setup": "cd frontend && npm install && cd ../backend/lambda && pip install -r requirements.txt",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend/lambda && pip install -r requirements.txt",
+    "mock-api": "cd frontend && npm run mock-api"
+  },
+  "workspaces": [],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
+
